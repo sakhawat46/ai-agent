@@ -58,12 +58,6 @@ def classify_message(state: State):
     return {"message_type": classification}
 
 
-class MessageClassifier(BaseModel):
-    message_type: Literal["emotional", "logical"] = Field(
-        ...,
-        description="Classify if the message requires an emotional (therapist) or logical response."
-    )
-
 class State(TypedDict):
     messages: Annotated[list, add_messages]
     message_type: str | None
